@@ -186,7 +186,7 @@ if st.button('Show Recommendation according to movie'):
     with col1112:
         st.markdown(f'''<h1 style="font-size:1rem; color: #FFFFFF">Budget:  {millify(data_select["budget"])} USD</h1>''',unsafe_allow_html=True)
         st.markdown(f'''<h1 style="font-size:1rem; color: #FFFFFF">Revenue:  {millify(data_select["revenue"])} USD</h1>''',unsafe_allow_html=True)
-        st.markdown(f'''<h1 style="font-size:1rem; color: #FFFFFF">Profit Percentage:  {round((data_select["revenue"]-data_select["budget"])/(data_select["budget"]),2)*100}%</h1>''',unsafe_allow_html=True)
+        st.markdown(f'''<h1 style="font-size:1rem; color: #FFFFFF">Profit Percentage:  {round((data_select["revenue"]-data_select["budget"])/(data_select["budget"]+0.0000002),2)*100}%</h1>''',unsafe_allow_html=True)
         st.markdown(f'''<h1 style="font-size:1rem; color: #FFFFFF">Total Runtime:  {str(timedelta(minutes=data_select["runtime"]))[0]} Hour(s) {str(timedelta(minutes=data_select["runtime"]))[2:-3]} min(s) </h1>''',unsafe_allow_html=True)
         st.markdown(f'''<p> <h1 style="font-size:1rem; color: #FFFFFF">Average Rating:  {round(data_select["vote_average"],1)} &#9733; ({data_select["vote_count"]}votes)</h1> </p>''',unsafe_allow_html=True)
         st.markdown(f'''<h1 style="font-size:1rem; color: #FFFFFF">Overview:     {data_select["overview"]}</h1>''',unsafe_allow_html=True)
