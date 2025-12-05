@@ -269,13 +269,15 @@ if st.button('Show Recommendation According to genre'):
     st.markdown(f'''<h1 style="font-size:3rem; color: #FFFFFF">Top five {selected_genre} movies</h1>''',unsafe_allow_html=True)
     col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
-        st.markdown(f'''
-                        <a href={recommended_movie_video_genre[0]}>
-                            <img src={recommended_movie_posters[0]} width="250" />
-                            <figcaption style="color:white;">{recommended_movie_names[0]}</figcaption>
-                        </a>''',
-                        unsafe_allow_html=True
-                    )
+        st.markdown(
+    f'''
+    <a href="{recommended_movie_video[1]}" target="_blank">
+        <img src="{recommended_movie_posters[1]}" style="width:250px; border-radius:10px;">
+        <div style="color:white; text-align:center;">{recommended_movie_names[1]}</div>
+    </a>
+    ''',
+    unsafe_allow_html=True
+)
     with col2:
         st.markdown(f'''
                         <a href={recommended_movie_video_genre[1]}>
