@@ -9,6 +9,7 @@ from ast import literal_eval
 import bs4 as bs
 import urllib.request
 import pickle
+from urllib.request import Request, urlopen
 
 import base64
 import math
@@ -120,7 +121,15 @@ def sentiment_df(movie_id):
     data = requests.get(url)
     data = data.json()
     imdb_id  =data["imdb_id"]
-    sauce = urllib.request.urlopen('https://www.imdb.com/title/{}/reviews?ref_=tt_ov_rt'.format(imdb_id)).read()
+    url = f'https://www.imdb.com/title/{imdb_id}/reviews?ref_=tt_ov_rt'
+
+# add a fake browser header
+    req = Request(
+        url,
+    headers={"User-Agent": "Mozilla/5.0"}
+    )
+
+    sauce = urlopen(req).read()
     soup1 = bs.BeautifulSoup(sauce,'lxml')
     soup_result = soup1.find_all("div",{"class":"text show-more__control"})
     reviews_list = [] # list of reviews
